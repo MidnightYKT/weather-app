@@ -35,33 +35,36 @@ const Home = () => {
   let content;
   if (Object.keys(data).length === 0 && error === "") {
     content = (
-      <div>
-        <h2>Welcome to the weather app</h2>
+      <div className="text-white text-center h-screen mt-[5rem]">
+        <h2 className="text-3xl font-bold mb-4">Welcome to the weather app</h2>
+        <p className="text-xl">Enter a city name to get the weather forecast</p>
       </div>
     );
   } else if (error !== "") {
     content = (
-      <div>
-        <p>City Not Found</p>
-        <p>Enter a Valid City</p>
+      <div className="text-white text-center h-screen mt-[5rem]">
+        <p className="text-3xl font-bold mb-4">City Not Found</p>
+        <p className="text-xl">Enter a Valid City</p>
       </div>
     );
   } else {
     content = (
       <>
-        <div>
-          <Current data={data} />
-          <WeekForecast />
-        </div>
-        <div>
-          <WeatherDeatils data={data} />
+        <div className="min-h-lvh">
+          <div className="flex md:flex-row flex-col p-12 items-center justify-between">
+            <Current data={data} />
+            <WeekForecast data={data} />
+          </div>
+          <div>
+            <WeatherDeatils data={data} />
+          </div>
         </div>
       </>
     );
   }
 
   return (
-    <div className="bg-cover bg-gradient-to-r from-blue-500 to-blue-300 h-screen">
+    <div className="bg-cover bg-gradient-to-r from-blue-500 to-blue-300 h-fit">
       <div className="bg-white/25 w-full flex flex-col h-fit">
         {/* {INPUT AND LOGO} */}
         <div className="flex flex-col justify-between items-center p-12 md:flex-row">
