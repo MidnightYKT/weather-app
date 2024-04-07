@@ -9,7 +9,7 @@ import { WiHumidity } from "react-icons/wi";
 
 interface WeatherDetailsProps {
   data: {
-    current: {
+    current?: {
       wind_mph: number;
       humidity: number;
       wind_dir: string;
@@ -17,7 +17,7 @@ interface WeatherDetailsProps {
       feelslike_f: number;
       vis_km: number;
     };
-    forecast: {
+    forecast?: {
       forecastday: {
         astro: {
           sunrise: string;
@@ -29,6 +29,9 @@ interface WeatherDetailsProps {
 }
 
 const WeatherDeatils = ({ data }: WeatherDetailsProps) => {
+  if (!data.current) {
+    return null;
+  }
   return (
     <>
       <div className="p-12">
@@ -64,7 +67,7 @@ const WeatherDeatils = ({ data }: WeatherDetailsProps) => {
           <div className="bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl">
             <div className="text-2xl">
               <h3>Sunrise</h3>
-              <h3>{data.forecast.forecastday[0].astro.sunrise}</h3>
+              <h3>{data.forecast?.forecastday[0].astro.sunrise}</h3>
             </div>
             <div>
               <FiSunrise fontSize={40} />
@@ -73,7 +76,7 @@ const WeatherDeatils = ({ data }: WeatherDetailsProps) => {
           <div className="bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl">
             <div className="text-2xl">
               <h3>Sunset</h3>
-              <h3>{data.forecast.forecastday[0].astro.sunset}</h3>
+              <h3>{data.forecast?.forecastday[0].astro.sunset}</h3>
             </div>
             <div>
               <FiSunset fontSize={40} />

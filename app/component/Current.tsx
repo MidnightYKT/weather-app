@@ -4,14 +4,14 @@ import { MdLocationOn } from "react-icons/md";
 
 interface CurrentProps {
   data: {
-    current: {
+    current?: {
       condition: {
         icon: string;
         text: string;
       };
       temp_f: number;
     };
-    location: {
+    location?: {
       name: string;
       region: string;
     };
@@ -20,7 +20,7 @@ interface CurrentProps {
 
 const Current = ({ data }: CurrentProps) => {
   const currentDate = getCurrentDate();
-  const weatherIcon = data.current.condition.icon;
+  const weatherIcon = data.current ? data.current.condition.icon : null;
 
   return (
     <div className="flex flex-col mb-8 md:mb-0 items-start gap-2 w-1/2">
@@ -34,17 +34,24 @@ const Current = ({ data }: CurrentProps) => {
             <img
               className="w-[50px] object-cover"
               src={weatherIcon}
-              alt={data.current.condition.text}
+              alt="Weather Icon"
             />
           </div>
         )}
       </div>
       <div>
         <p className="text-5xl text-white">
-          {data.current.temp_f.toFixed()}
+          {data.current ? (
+            <p className="text-5xl text-white">
+              {data.current.temp_f.toFixed()}
+              <span>°</span>
+            </p>
+          ) : null}
           <span className="text-3xl">°</span>
         </p>
-        <span className="text-white">{data.current.condition.text}</span>
+        {data.current ? (
+          <span className="text-white">{data.current.condition.text}</span>
+        ) : null}
       </div>
       <div>
         {data.location ? (
