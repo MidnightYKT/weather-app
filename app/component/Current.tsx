@@ -9,12 +9,12 @@ interface CurrentProps {
         icon: string;
         text: string;
       };
+      temp_f: number;
     };
-    temp_f: number;
-  };
-  location: {
-    name: string;
-    region: string;
+    location: {
+      name: string;
+      region: string;
+    };
   };
 }
 
