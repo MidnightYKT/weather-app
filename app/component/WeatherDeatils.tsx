@@ -1,8 +1,11 @@
 import React from "react";
 import { CiTempHigh } from "react-icons/ci";
 import { FaEye } from "react-icons/fa";
+import { FiSunrise, FiSunset } from "react-icons/fi";
 import { GiWindSlap } from "react-icons/gi";
 import { MdAir } from "react-icons/md";
+import { PiWindFill } from "react-icons/pi";
+import { WiHumidity } from "react-icons/wi";
 
 interface WeatherDetailsProps {
   data: {
@@ -37,7 +40,7 @@ const WeatherDeatils = ({ data }: WeatherDetailsProps) => {
               <h3>{data.current.wind_mph} MPH</h3>
             </div>
             <div>
-              <GiWindSlap fontSize={40} />
+              <PiWindFill fontSize={40} />
             </div>
           </div>
           <div className="bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl">
@@ -46,7 +49,7 @@ const WeatherDeatils = ({ data }: WeatherDetailsProps) => {
               <h3>{data.current.humidity}%</h3>
             </div>
             <div>
-              <GiWindSlap fontSize={40} />
+              <WiHumidity fontSize={40} />
             </div>
           </div>
           <div className="bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl">
@@ -64,7 +67,7 @@ const WeatherDeatils = ({ data }: WeatherDetailsProps) => {
               <h3>{data.forecast.forecastday[0].astro.sunrise}</h3>
             </div>
             <div>
-              <GiWindSlap fontSize={40} />
+              <FiSunrise fontSize={40} />
             </div>
           </div>
           <div className="bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl">
@@ -73,7 +76,7 @@ const WeatherDeatils = ({ data }: WeatherDetailsProps) => {
               <h3>{data.forecast.forecastday[0].astro.sunset}</h3>
             </div>
             <div>
-              <GiWindSlap fontSize={40} />
+              <FiSunset fontSize={40} />
             </div>
           </div>
           <div className="bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl">
