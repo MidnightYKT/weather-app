@@ -5,9 +5,9 @@ interface DayForecast {
       icon: string;
       text: string;
     };
+    maxtemp_f: number;
+    mintemp_f: number;
   };
-  maxtemp_f: number;
-  mintemp_f: number;
 }
 
 interface WeekForecastProps {
